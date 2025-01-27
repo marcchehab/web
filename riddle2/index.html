@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>rid_le 2</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../globals/css/main.css" />
+        <style>
+            /* CSS just for this file */
+            body {
+                background-color: black;
+            }
+        </style>
+
+        <!-- Javascript -->
+        <script defer src="../globals/js/scripts.js"></script>
+        <script defer>
+            // Javascript just for this file
+            function togglePlayPause() {
+                const video = document.getElementById("riddleVideo");
+                const playPauseButton = document.getElementById("playPauseButton");
+                if (video.paused) {
+                    video.play();
+                    playPauseButton.textContent = "Pause";
+                } else {
+                    video.pause();
+                    playPauseButton.textContent = "Play";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>The Twinkling Enigma</h1>
+        <p>In your hands lies an object like no other—rough yet smooth, ancient yet aglow. As you turn it, faint sparkles dance across its surface, casting fleeting patterns of light onto the walls.</p>
+
+        <video id="riddleVideo" width="100%">
+            <source src="object.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
+
+        <p>What secret does this strange artifact hold? Solve its riddle to unveil the next clue.</p>
+
+        <div class="riddle">
+            <input type="text" />
+            <button onclick="checkAnswer(this)">Answer</button>
+            <div class="solution">bookmark</div>
+            <div class="correctfb">
+                <p>Correct answer</p>
+            </div>
+            <div class="wrongfb"><p>Wrong answer</p></div>
+        </div>
+    </body>
+</html>

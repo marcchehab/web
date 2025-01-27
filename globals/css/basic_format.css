@@ -1,0 +1,74 @@
+body {
+    font-family: "ltr-ncnd-variable", serif;
+    font-variation-settings: "wght" 900;
+    background-color: #111111;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-size: 4vw;
+    text-align: center;
+}
+
+p,
+h1 {
+    padding: 0 1em;
+}
+
+.riddle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+}
+
+input {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 1em;
+    font: inherit;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: #ff0000 0 0 5px;
+    text-shadow: #ff0000 0 0 5px;
+}
+
+button,
+.button {
+    flex: 1;
+    flex-grow: 0;
+    justify-content: center;
+    width: 80%;
+    padding: 10px 20px;
+    border: 1px solid #fefefe;
+    border-radius: 5px;
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: #ff0000 0 0 5px;
+    text-shadow: #ff0000 0 0 5px;
+}
+
+.solution {
+    display: none;
+}
+
+.correctfb,
+.wrongfb {
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 0;
+    transition: height 2s;
+    margin-top: 20px;
+}
+
+.riddle.correct .correctfb,
+.riddle.wrong .wrongfb {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    height: auto;
+    height: calc-size(auto);
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>rid_le 1</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../globals/css/main.css" />
+        <style>
+            /* CSS just for this file */
+            .audio-control {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, 0.5);
+                border: 1px solid #ff0000;
+                color: #ff0000;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                box-shadow: #ff0000 0 0 5px;
+            }
+        </style>
+
+        <!-- Javascript -->
+        <script defer src="../globals/js/scripts.js"></script>
+    </head>
+
+    <body>
+        <!-- Background music -->
+        <audio id="bgMusic">
+            <source src="./lady_mixdown.mp3" type="audio/mpeg" />
+        </audio>
+        <a class="audio-control" onclick="toggleMusic()">❚❚</a>
+        <script>
+            // Javascript just for this file
+            const music = document.getElementById("bgMusic");
+            const button = document.querySelector(".audio-control");
+
+            function toggleMusic() {
+                if (music.paused) {
+                    music.play();
+                    button.textContent = "❚❚";
+                } else {
+                    music.pause();
+                    button.textContent = "▶";
+                }
+            }
+
+            // Try to autoplay on page load
+            document.addEventListener("DOMContentLoaded", () => {
+                music.muted = false;
+                music.play().catch((e) => {
+                    console.log("Autoplay prevented by browser");
+                    button.textContent = "▶";
+                });
+            });
+        </script>
+
+        <!-- Actual content -->
+        <h1>Lady Whisper's Forgotten Sum</h1>
+        <p>In the dim glow of flickering candle light, an old lady peers at you with a knowing smile. Her voice is soft but carries a strange weight, as if echoing through time itself...</p>
+        <img src="lady.png" width="100%" />
+        <p><i>"You dare enter my domain, seeking answers?"</i>, she whispers, her eyes glinting.</p>
+        <p>
+            <i>"Prove your wit first, for only the clever may tread further."</i>
+            She pauses, leaning closer.
+        </p>
+
+        <div class="riddle">
+            <p>
+                <i>"Tell me, traveler... <nobr>What's 2 + 2?</nobr>"</i>
+            </p>
+            <input type="text" />
+            <button onclick="checkAnswer(this)">Answer</button>
+            <div class="solution">4</div>
+            <div class="correctfb">
+                <p>
+                    <i>"So, you do have a brain in that head of yours,"</i> she mutters, stepping aside.
+                    <i>"But beware—this was the easiest of my trials. The deeper you go, the darker the secrets."</i>
+                </p>
+                <p><a href="../riddle2/" class="button">Continue</a></p>
+            </div>
+            <div class="wrongfb">
+                A cold laugh escapes her lips, echoing through the chamber.
+                <i>"Foolish child,"</i> she hisses, her face suddenly hard and menacing.
+                <i>"If you cannot solve this, how will you survive the horrors that await? Begone—or try again if you dare."</i>
+            </div>
+        </div>
+    </body>
+</html>
